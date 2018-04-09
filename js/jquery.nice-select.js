@@ -1,10 +1,15 @@
 /*  jQuery Nice Select - v1.1.0
+    # modify - add customLayout option
     https://github.com/hernansartorio/jquery-nice-select
     Made by Hernán Sartorio  */
  
 (function($) {
 
   $.fn.niceSelect = function(method) {
+
+    var settings = $.extend({
+        customLayout: false,
+    }, method );
     
     // Methods
     if (typeof method == 'string') {      
@@ -41,7 +46,7 @@
       }
       return this;
     }
-      
+    
     // Hide native select
     this.hide();
     
@@ -73,13 +78,15 @@
         var $option = $(this);
         var display = $option.data('display');
 
+        var custommarkup = '<div class="select-drop-wrap">'+ ($option.attr('data-thumb') ? '<div class="select-thumbnail"><img src="'+$option.attr('data-thumb')+'" alt=""/></div>' : '') +'<div class="doctor-information"><span class="label">' + $option.text() + '</span><span class="caption">' + $option.data("major") + '</span></div><div class="dropdown-select-icon"><span>@</span></div></div>';
+        var defaultmarkup = $option.text();
         $dropdown.find('ul').append($('<li></li>')
           .attr('data-value', $option.val())
           .attr('data-display', (display || null))
           .addClass('option' +
             ($option.is(':selected') ? ' selected' : '') +
             ($option.is(':disabled') ? ' disabled' : ''))
-          .html($option.text())
+          .html( (settings.customLayout) ? custommarkup : defaultmarkup )
         );
       });
     }
@@ -120,7 +127,12 @@
       $dropdown.find('.selected').removeClass('selected');
       $option.addClass('selected');
       
-      var text = $option.data('display') || $option.text();
+
+      if ( settings.customLayout ) {
+        var text = $option.data('display') || $option.find('.label').text();
+      } else {
+        var text = $option.data('display') || $option.text();
+      }
       $dropdown.find('.current').text(text);
       
       $dropdown.prev('select').val($option.data('value')).trigger('change');
