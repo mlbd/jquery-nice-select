@@ -370,3 +370,63 @@ label {
   clear: both;
   font-size: 12px;
   margin-top: 90px; }
+
+
+
+
+
+
+
+/* For custom layout */
+.select-drop-wrap::before,
+.select-drop-wrap::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.select-drop-wrap {
+  display: flex;
+}
+span.label {
+  display: block;
+  line-height: 1;
+  color: #303030;
+  font-weight: 700;
+}
+span.caption {
+  display: block;
+  font-size: 12px;
+  line-height: 1;
+}
+.select-drop-wrap {
+  padding: 8px 0;
+}
+.select-thumbnail {
+  width: 100%;
+  max-width: 25%;
+  min-width: 65px;
+  margin-right: 15px;
+}
+.select-thumbnail img {
+  max-width: 100%;
+  display: block;
+}
+.doctor-information {
+  width: 100%;
+  align-self: center;
+  min-width: 170px;
+}
+.dropdown-select-icon {
+  width: 100%;
+  max-width: 20%;
+  min-width: 20px;
+  text-align: center;
+  align-self: center;
+}
+.dropdown-select-icon span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #333;
+  border-radius: 50%;
+}
