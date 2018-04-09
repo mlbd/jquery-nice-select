@@ -78,7 +78,7 @@
         var $option = $(this);
         var display = $option.data('display');
 
-        var custommarkup = '<div class="select-drop-wrap">'+ ($option.attr('data-thumb') ? '<div class="select-thumbnail"><img src="'+$option.attr('data-thumb')+'" alt=""/></div>' : '') +'<div class="doctor-information"><span class="label">' + $option.text() + '</span><span class="caption">' + $option.data("major") + '</span></div><div class="dropdown-select-icon"><span>@</span></div></div>';
+        var custommarkup = '<div class="select-drop-wrap">'+ ($option.attr('data-thumb') ? '<div class="select-thumbnail"><img src="'+$option.attr('data-thumb')+'" alt=""/></div>' : '') +'<div class="doctor-information"><span class="label">' + $option.text() + '</span>' + ($option.attr('data-major') ? '<span class="caption">' + $option.data("major") + '</span>' : '') + '</div><div class="dropdown-select-icon"><span>@</span></div></div>';
         var defaultmarkup = $option.text();
         $dropdown.find('ul').append($('<li></li>')
           .attr('data-value', $option.val())
