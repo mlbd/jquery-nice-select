@@ -31,4 +31,14 @@ $(document).ready(function() {
 });
 ```
 
+For Custom Layout
+
+```javascript
+$(document).ready(function() {
+  $('select').niceSelect({
+    customLayout: true
+  }); 
+});
+```
+
 Full documentation and examples at [hernansartorio.com/jquery-nice-select](http://hernansartorio.com/jquery-nice-select).
