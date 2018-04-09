@@ -60,11 +60,11 @@
     <p>...into this:</p>
     
     <div class="box">
-      <select>
-        <option value="1" data-thumb="seoleader.png" data-major="Anesthesiologist">Some option</option>
-        <option value="2" data-major="Cardiologist">Another option</option>
-        <option value="3" data-thumb="seoleader.png" data-major="Allergist">A disabled option</option>
-        <option value="4" data-thumb="seoleader.png" data-major="Dentist">Potato</option>
+      <select class="custom-layout">
+        <option value="1" data-thumb="https://blogcdn1.secureserver.net/wp-content/uploads/2014/06/create-a-gravatar-beard.png" data-major="Anesthesiologist">Dr. Mikhail Bond</option>
+        <option value="2" data-thumb="https://blogcdn1.secureserver.net/wp-content/uploads/2014/06/create-a-gravatar-beard.png" data-major="Cardiologist">Dr. White Charles</option>
+        <option value="3" data-thumb="https://blogcdn1.secureserver.net/wp-content/uploads/2014/06/create-a-gravatar-beard.png" data-major="Allergist">Dr. Cattie Lee</option>
+        <option value="4" data-thumb="https://blogcdn1.secureserver.net/wp-content/uploads/2014/06/create-a-gravatar-beard.png" data-major="Dentist">Dr. Strange</option>
       </select>
     </div>
     
@@ -186,7 +186,11 @@
   
   <script>
     $(document).ready(function() {
-      $('select:not(.ignore)').niceSelect();      
+      $('select:not(.ignore, .custom-layout)').niceSelect();
+      $('.custom-layout').niceSelect({
+        customLayout: true
+      });
+
       FastClick.attach(document.body);
     });    
   </script>
